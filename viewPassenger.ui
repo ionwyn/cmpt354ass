@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>Form</class>
- <widget class="QWidget" name="Form">
+ <class>viewPassenger</class>
+ <widget class="QWidget" name="viewPassenger">
   <property name="geometry">
    <rect>
     <x>0</x>
@@ -23,9 +23,9 @@
    </size>
   </property>
   <property name="windowTitle">
-   <string>Form</string>
+   <string>View Passenger</string>
   </property>
-  <widget class="QTableWidget" name="tableWidget">
+  <widget class="QTableWidget" name="table_Passenger">
    <property name="geometry">
     <rect>
      <x>0</x>
@@ -258,7 +258,7 @@
     <string>Search for a flight instance:</string>
    </property>
   </widget>
-  <widget class="QPushButton" name="pushButton">
+  <widget class="QPushButton" name="submitSearch">
    <property name="geometry">
     <rect>
      <x>670</x>

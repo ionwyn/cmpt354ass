@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>Form</class>
- <widget class="QWidget" name="Form">
+ <class>addPassenger</class>
+ <widget class="QWidget" name="addPassenger">
   <property name="geometry">
    <rect>
     <x>0</x>
@@ -23,7 +23,7 @@
    </size>
   </property>
   <property name="windowTitle">
-   <string>Form</string>
+   <string>Add Passenger</string>
   </property>
   <property name="autoFillBackground">
    <bool>false</bool>
@@ -53,7 +53,7 @@
     <pixmap resource="rscConfig.qrc">:/icons/Resources/Icons/empty.png</pixmap>
    </property>
   </widget>
-  <widget class="QPushButton" name="pushButton">
+  <widget class="QPushButton" name="submitPassenger">
    <property name="geometry">
     <rect>
      <x>160</x>
@@ -75,7 +75,7 @@
     <string>Submit</string>
    </property>
   </widget>
-  <widget class="QLineEdit" name="lineEdit">
+  <widget class="QLineEdit" name="first_name">
    <property name="geometry">
     <rect>
      <x>140</x>
@@ -100,7 +100,7 @@
     <string>First name</string>
    </property>
   </widget>
-  <widget class="QLineEdit" name="lineEdit_2">
+  <widget class="QLineEdit" name="last_name">
    <property name="geometry">
     <rect>
      <x>140</x>

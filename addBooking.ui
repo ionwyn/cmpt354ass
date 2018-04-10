@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>Form</class>
- <widget class="QWidget" name="Form">
+ <class>addBooking</class>
+ <widget class="QWidget" name="addBooking">
   <property name="geometry">
    <rect>
     <x>0</x>
@@ -29,7 +29,7 @@
    </size>
   </property>
   <property name="windowTitle">
-   <string>Form</string>
+   <string>Add Booking</string>
   </property>
   <widget class="QLabel" name="label">
    <property name="geometry">
@@ -310,6 +310,7 @@
  </widget>
  <resources>
   <include location="rscConfig.qrc"/>
+  <include location="../../.designer/backup/rscConfig.qrc"/>
  </resources>
  <connections>
   <connection>
