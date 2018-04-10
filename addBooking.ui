@@ -1,0 +1,444 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>Form</class>
+ <widget class="QWidget" name="Form">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>500</width>
+    <height>800</height>
+   </rect>
+  </property>
+  <property name="sizePolicy">
+   <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+    <horstretch>0</horstretch>
+    <verstretch>0</verstretch>
+   </sizepolicy>
+  </property>
+  <property name="minimumSize">
+   <size>
+    <width>500</width>
+    <height>800</height>
+   </size>
+  </property>
+  <property name="maximumSize">
+   <size>
+    <width>500</width>
+    <height>800</height>
+   </size>
+  </property>
+  <property name="windowTitle">
+   <string>Form</string>
+  </property>
+  <widget class="QLabel" name="label">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>501</width>
+     <height>801</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="pixmap">
+    <pixmap resource="rscConfig.qrc">:/icons/Resources/Icons/empty.png</pixmap>
+   </property>
+   <property name="scaledContents">
+    <bool>true</bool>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_2">
+   <property name="geometry">
+    <rect>
+     <x>70</x>
+     <y>330</y>
+     <width>171</width>
+     <height>51</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>8514oem</family>
+    </font>
+   </property>
+   <property name="text">
+    <string>Add a flight for</string>
+   </property>
+   <property name="buddy">
+    <cstring>passenger_id</cstring>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="passenger_id">
+   <property name="geometry">
+    <rect>
+     <x>240</x>
+     <y>340</y>
+     <width>171</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>8514oem</family>
+    </font>
+   </property>
+   <property name="placeholderText">
+    <string>passenger_id</string>
+   </property>
+  </widget>
+  <widget class="QRadioButton" name="bool_singletrip">
+   <property name="geometry">
+    <rect>
+     <x>70</x>
+     <y>390</y>
+     <width>141</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>8514oem</family>
+    </font>
+   </property>
+   <property name="text">
+    <string>Single trip</string>
+   </property>
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="checked">
+    <bool>false</bool>
+   </property>
+  </widget>
+  <widget class="QRadioButton" name="bool_multicity">
+   <property name="geometry">
+    <rect>
+     <x>230</x>
+     <y>390</y>
+     <width>131</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>8514oem</family>
+    </font>
+   </property>
+   <property name="text">
+    <string>Multi-city</string>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="flight_code1">
+   <property name="geometry">
+    <rect>
+     <x>211</x>
+     <y>467</y>
+     <width>191</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>8514oem</family>
+     <pointsize>12</pointsize>
+    </font>
+   </property>
+   <property name="placeholderText">
+    <string>flight_code</string>
+   </property>
+  </widget>
+  <widget class="QDateEdit" name="date_departure1">
+   <property name="geometry">
+    <rect>
+     <x>210</x>
+     <y>520</y>
+     <width>201</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>8514oem</family>
+    </font>
+   </property>
+   <property name="displayFormat">
+    <string>MM-dd-yyyy</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_3">
+   <property name="geometry">
+    <rect>
+     <x>101</x>
+     <y>447</y>
+     <width>91</width>
+     <height>51</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>8514oem</family>
+    </font>
+   </property>
+   <property name="text">
+    <string>Flight 1:</string>
+   </property>
+   <property name="buddy">
+    <cstring>flight_code1</cstring>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_4">
+   <property name="geometry">
+    <rect>
+     <x>70</x>
+     <y>510</y>
+     <width>121</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>8514oem</family>
+    </font>
+   </property>
+   <property name="text">
+    <string>Departure 1:</string>
+   </property>
+   <property name="buddy">
+    <cstring>date_departure1</cstring>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_5">
+   <property name="geometry">
+    <rect>
+     <x>101</x>
+     <y>567</y>
+     <width>91</width>
+     <height>51</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>8514oem</family>
+    </font>
+   </property>
+   <property name="text">
+    <string>Flight 2:</string>
+   </property>
+   <property name="buddy">
+    <cstring>flight_code1</cstring>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_6">
+   <property name="geometry">
+    <rect>
+     <x>70</x>
+     <y>630</y>
+     <width>121</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>8514oem</family>
+    </font>
+   </property>
+   <property name="text">
+    <string>Departure 2:</string>
+   </property>
+   <property name="buddy">
+    <cstring>date_departure1</cstring>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="flight_code2">
+   <property name="geometry">
+    <rect>
+     <x>211</x>
+     <y>587</y>
+     <width>191</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>8514oem</family>
+     <pointsize>12</pointsize>
+    </font>
+   </property>
+   <property name="placeholderText">
+    <string>flight_code</string>
+   </property>
+  </widget>
+  <widget class="QDateEdit" name="date_departure2">
+   <property name="geometry">
+    <rect>
+     <x>210</x>
+     <y>640</y>
+     <width>201</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>8514oem</family>
+    </font>
+   </property>
+   <property name="displayFormat">
+    <string>MM-dd-yyyy</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="btn_addBooking">
+   <property name="geometry">
+    <rect>
+     <x>140</x>
+     <y>710</y>
+     <width>191</width>
+     <height>51</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>8514oem</family>
+    </font>
+   </property>
+   <property name="text">
+    <string>Add booking</string>
+   </property>
+  </widget>
+ </widget>
+ <resources>
+  <include location="rscConfig.qrc"/>
+ </resources>
+ <connections>
+  <connection>
+   <sender>bool_singletrip</sender>
+   <signal>clicked()</signal>
+   <receiver>label_5</receiver>
+   <slot>hide()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>152</x>
+     <y>373</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>116</x>
+     <y>564</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>bool_singletrip</sender>
+   <signal>clicked()</signal>
+   <receiver>label_6</receiver>
+   <slot>hide()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>117</x>
+     <y>365</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>104</x>
+     <y>604</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>bool_singletrip</sender>
+   <signal>clicked()</signal>
+   <receiver>flight_code2</receiver>
+   <slot>hide()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>191</x>
+     <y>372</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>248</x>
+     <y>576</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>bool_singletrip</sender>
+   <signal>clicked()</signal>
+   <receiver>date_departure2</receiver>
+   <slot>hide()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>124</x>
+     <y>374</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>227</x>
+     <y>609</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>bool_multicity</sender>
+   <signal>clicked()</signal>
+   <receiver>label_5</receiver>
+   <slot>show()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>296</x>
+     <y>368</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>120</x>
+     <y>543</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>bool_multicity</sender>
+   <signal>clicked()</signal>
+   <receiver>flight_code2</receiver>
+   <slot>show()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>327</x>
+     <y>380</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>330</x>
+     <y>567</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>bool_multicity</sender>
+   <signal>clicked()</signal>
+   <receiver>date_departure2</receiver>
+   <slot>show()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>267</x>
+     <y>374</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>303</x>
+     <y>624</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>bool_multicity</sender>
+   <signal>clicked()</signal>
+   <receiver>label_6</receiver>
+   <slot>show()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>255</x>
+     <y>368</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>70</x>
+     <y>611</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+</ui>
