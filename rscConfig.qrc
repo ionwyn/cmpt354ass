@@ -1,0 +1,55 @@
+<RCC>
+  <qresource prefix="icons">
+    <file>Resources/Icons/empty.png</file>
+    <file>Resources/Icons/Untitled design.png</file>
+    <file>Resources/Icons/WakandaAirline.png</file>
+    <file>Resources/Icons/add.png</file>
+    <file>Resources/Icons/aeroplane.png</file>
+    <file>Resources/Icons/airplane.png</file>
+    <file>Resources/Icons/alarm.png</file>
+    <file>Resources/Icons/arrivals.png</file>
+    <file>Resources/Icons/bar-chart.png</file>
+    <file>Resources/Icons/briefcase.png</file>
+    <file>Resources/Icons/calendar.png</file>
+    <file>Resources/Icons/calendar-1.png</file>
+    <file>Resources/Icons/calendar-2.png</file>
+    <file>Resources/Icons/cancel.png</file>
+    <file>Resources/Icons/car.png</file>
+    <file>Resources/Icons/check.png</file>
+    <file>Resources/Icons/clock.png</file>
+    <file>Resources/Icons/clock-1.png</file>
+    <file>Resources/Icons/cogwheel.png</file>
+    <file>Resources/Icons/compass.png</file>
+    <file>Resources/Icons/credit-card.png</file>
+    <file>Resources/Icons/departures.png</file>
+    <file>Resources/Icons/dollar-symbol.png</file>
+    <file>Resources/Icons/down-arrow.png</file>
+    <file>Resources/Icons/down-arrow-1.png</file>
+    <file>Resources/Icons/hotel.png</file>
+    <file>Resources/Icons/hourglass.png</file>
+    <file>Resources/Icons/levels.png</file>
+    <file>Resources/Icons/menu.png</file>
+    <file>Resources/Icons/minus.png</file>
+    <file>Resources/Icons/moon.png</file>
+    <file>Resources/Icons/next.png</file>
+    <file>Resources/Icons/percentage.png</file>
+    <file>Resources/Icons/phone-call.png</file>
+    <file>Resources/Icons/photo-camera.png</file>
+    <file>Resources/Icons/placeholder.png</file>
+    <file>Resources/Icons/previous.png</file>
+    <file>Resources/Icons/push-pin.png</file>
+    <file>Resources/Icons/repeat.png</file>
+    <file>Resources/Icons/return.png</file>
+    <file>Resources/Icons/route.png</file>
+    <file>Resources/Icons/satellite-dish.png</file>
+    <file>Resources/Icons/search.png</file>
+    <file>Resources/Icons/sort.png</file>
+    <file>Resources/Icons/speech-bubble.png</file>
+    <file>Resources/Icons/star.png</file>
+    <file>Resources/Icons/sun.png</file>
+    <file>Resources/Icons/up-arrow.png</file>
+    <file>Resources/Icons/upload.png</file>
+    <file>Resources/Icons/user.png</file>
+    <file>Resources/Icons/warning.png</file>
+  </qresource>
+</RCC>
