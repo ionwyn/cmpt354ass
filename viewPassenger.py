@@ -1,12 +1,6 @@
-# -*- coding: utf-8 -*-
-
-# Form implementation generated from reading ui file 'viewPassenger.ui'
-#
-# Created by: PyQt5 UI code generator 5.10.1
-#
-# WARNING! All changes made in this file will be lost!
-
 from PyQt5 import QtCore, QtGui, QtWidgets
+import pyodbc
+import sys
 
 class Ui_viewPassenger(QtWidgets.QWidget):
     def setupUi(self, viewPassenger):
@@ -82,9 +76,60 @@ class Ui_viewPassenger(QtWidgets.QWidget):
         item = self.table_Passenger.item(0, 2)
         item.setText(_translate("viewPassenger", "last_name"))
         item = self.table_Passenger.item(0, 3)
-        item.setText(_translate("viewPassenger", "depart_date"))
+        item.setText(_translate("viewPassenger", "miles"))
         self.table_Passenger.setSortingEnabled(__sortingEnabled)
         self.lineEdit.setPlaceholderText(_translate("viewPassenger", "flight_code"))
         self.dateEdit.setDisplayFormat(_translate("viewPassenger", "MM-dd-yyyy"))
         self.label_2.setText(_translate("viewPassenger", "Search for a flight instance:"))
         self.submitSearch.setText(_translate("viewPassenger", "Search"))
+
+        self.submitSearch.clicked.connect(self.showdialog)
+
+    def showdialog(self):
+        msg = QtWidgets.QMessageBox()
+        msg.setIcon(QtWidgets.QMessageBox.Information)
+
+        try:
+            cnxn = pyodbc.connect('driver={SQL Server};server=cypress.csil.sfu.ca;uid=s_isean;pwd=JrR4jH7m74FEmY4m')
+            cursor = cnxn.cursor()
+            dateTemp = self.dateEdit.date()
+            sqlDate = str(dateTemp.toPyDate())
+            flightCode = str(self.lineEdit.text())
+            sqlStuff = """
+            SELECT DISTINCT P.passenger_id, P.first_name, P.last_name, P.miles
+            FROM Passenger P, Booking B, Flight_Instance F WHERE B.passenger_id = P.passenger_id and B.flight_code = ? and B.depart_date = ?
+            """
+
+            rows = cursor.execute(sqlStuff, flightCode, sqlDate).fetchall()
+
+            sqlStuff = """
+            SELECT COUNT(*) FROM (
+            SELECT DISTINCT P.passenger_id, P.first_name, P.last_name, P.miles
+            FROM Passenger P, Booking B, Flight_Instance F WHERE B.passenger_id = P.passenger_id and B.flight_code = ? and B.depart_date = ?)
+            AS haha
+            """
+            count = cursor.execute(sqlStuff, flightCode, sqlDate).fetchone()
+            count = int(count[0])
+            for i in range(1, count + 1):
+               for j in range(4):
+                   self.table_Passenger.setItem(i, j, QtWidgets.QTableWidgetItem(str(rows[i-1][j])))
+        except:
+           message="Something went wrong... Cypress is probably down again..."
+           print (message)
+
+        sqlC = """
+        SELECT available_seats from Flight_Instance
+        WHERE flight_code = ? AND depart_date = ?
+        """
+        seats = cursor.execute(sqlC, flightCode, sqlDate).fetchone()
+        seatCount = int(seats[0])
+        msg.setText("There are " + str(seatCount) + " seat(s) left for flight " + str(flightCode) + " on " + str(sqlDate))
+        msg.setWindowTitle("I hope you like the UI")
+        msg.setStandardButtons(QtWidgets.QMessageBox.Ok)
+        msg.buttonClicked.connect(self.msgbtn)
+
+        retval = msg.exec_()
+        print ("value of pressed message box button:", retval)
+
+    def msgbtn(i):
+       print ("Button pressed is:")

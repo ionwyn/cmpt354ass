@@ -1,15 +1,8 @@
-# -*- coding: utf-8 -*-
-
-# Form implementation generated from reading ui file 'mainWindow.ui'
-#
-# Created by: PyQt5 UI code generator 5.10.1
-#
-# WARNING! All changes made in this file will be lost!
-
 from PyQt5 import QtCore, QtGui, QtWidgets
 from addPassenger import *
 from viewPassenger import *
 from addBooking import *
+import pyodbc
 
 class Second(QtWidgets.QWidget):
     def __init__(self, parent=None):

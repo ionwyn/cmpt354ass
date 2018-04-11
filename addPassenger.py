@@ -1,12 +1,7 @@
-# -*- coding: utf-8 -*-
-
-# Form implementation generated from reading ui file 'addPassenger.ui'
-#
-# Created by: PyQt5 UI code generator 5.10.1
-#
-# WARNING! All changes made in this file will be lost!
-
 from PyQt5 import QtCore, QtGui, QtWidgets
+import sys
+import time
+import pyodbc
 
 class Ui_addPassenger(QtWidgets.QWidget):
     def setupUi(self, addPassenger):
@@ -60,3 +55,39 @@ class Ui_addPassenger(QtWidgets.QWidget):
         self.submitPassenger.setText(_translate("addPassenger", "Submit"))
         self.first_name.setPlaceholderText(_translate("addPassenger", "First name"))
         self.last_name.setPlaceholderText(_translate("addPassenger", "Last name"))
+        # conn = pyodbc.connect('driver={SQL Server};server=cypress.csil.sfu.ca;uid=s_isean;pwd=JrR4jH7m74FEmY4m')
+        # cur = conn.cursor()
+        self.submitPassenger.clicked.connect(self.showdialog)
+
+    def showdialog(self):
+        msg = QtWidgets.QMessageBox()
+        msg.setIcon(QtWidgets.QMessageBox.Information)
+        try:
+            cnxn = pyodbc.connect('driver={SQL Server};server=cypress.csil.sfu.ca;uid=s_isean;pwd=JrR4jH7m74FEmY4m')
+            cursor = cnxn.cursor()
+            firstName = self.first_name.text()
+            lastName = self.last_name.text()
+            last_id = cursor.execute("SELECT MAX(passenger_id) FROM Passenger").fetchone()
+            print ("Last ID was " + str(last_id[0]))
+            curId = int(last_id[0]) + 1
+            sql = """
+            INSERT INTO Passenger(passenger_id, first_name, last_name, miles)
+            VALUES(?, ?, ?, 0)
+            """
+            cursor.execute(sql, curId, str(firstName), str(lastName))
+            cnxn.commit()
+            message="The profile for passenger "+ firstName + " "+ lastName +" was created"
+
+        except:
+            message="The profile for passenger "+ firstName + " "+ lastName + " failed to be created"
+        msg.setText(message)
+        msg.setWindowTitle("Good looking popup")
+        msg.setDetailedText("If it didn't work:\n- Cypress might be down again for the 71984234th time")
+        msg.setStandardButtons(QtWidgets.QMessageBox.Ok)
+        msg.buttonClicked.connect(self.msgbtn)
+
+        retval = msg.exec_()
+        print ("value of pressed message box button:", retval)
+
+    def msgbtn(i):
+        print ("Button pressed is:")
