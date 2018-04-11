@@ -1,6 +1,7 @@
 from PyQt5 import QtCore, QtGui, QtWidgets
 import pyodbc
 import sys
+from datetime import datetime as dt
 
 class Ui_viewPassenger(QtWidgets.QWidget):
     def setupUi(self, viewPassenger):
