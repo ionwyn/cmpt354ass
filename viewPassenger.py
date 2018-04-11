@@ -8,7 +8,7 @@
 
 from PyQt5 import QtCore, QtGui, QtWidgets
 
-class Ui_viewPassenger(object):
+class Ui_viewPassenger(QtWidgets.QWidget):
     def setupUi(self, viewPassenger):
         viewPassenger.setObjectName("viewPassenger")
         viewPassenger.resize(1250, 750)
@@ -88,5 +88,3 @@ class Ui_viewPassenger(object):
         self.dateEdit.setDisplayFormat(_translate("viewPassenger", "MM-dd-yyyy"))
         self.label_2.setText(_translate("viewPassenger", "Search for a flight instance:"))
         self.submitSearch.setText(_translate("viewPassenger", "Search"))
-
-import rscConfig_rc

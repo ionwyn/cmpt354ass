@@ -1,4 +1,3 @@
-from addPassenger import *
 from addBooking import *
 from mainWindow import *
 from viewPassenger import *
@@ -12,7 +11,12 @@ class MainWindow(QtWidgets.QMainWindow):
         ui.setupUi(self)
 
 if __name__ == '__main__':
+    # app = QtWidgets.QApplication(sys.argv)
+    # w = MainWindow()
+    # w.show()
+    # sys.exit(app.exec_())
+
     app = QtWidgets.QApplication(sys.argv)
-    w = MainWindow()
-    w.show()
+    ex = Ui_mainWindow()
+    ex.show()
     sys.exit(app.exec_())

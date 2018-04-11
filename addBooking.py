@@ -8,7 +8,7 @@
 
 from PyQt5 import QtCore, QtGui, QtWidgets
 
-class Ui_addBooking(object):
+class Ui_addBooking(QtWidgets.QWidget):
     def setupUi(self, addBooking):
         addBooking.setObjectName("addBooking")
         addBooking.resize(500, 800)
@@ -140,5 +140,3 @@ class Ui_addBooking(object):
         self.flight_code2.setPlaceholderText(_translate("addBooking", "flight_code"))
         self.date_departure2.setDisplayFormat(_translate("addBooking", "MM-dd-yyyy"))
         self.btn_addBooking.setText(_translate("addBooking", "Add booking"))
-
-import rscConfig_rc

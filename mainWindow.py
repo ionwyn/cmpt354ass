@@ -7,8 +7,19 @@
 # WARNING! All changes made in this file will be lost!
 
 from PyQt5 import QtCore, QtGui, QtWidgets
+from addPassenger import *
+from viewPassenger import *
+from addBooking import *
 
-class Ui_mainWindow(object):
+class Second(QtWidgets.QWidget):
+    def __init__(self, parent=None):
+        super(Second, self).__init__(parent)
+
+class Ui_mainWindow(QtWidgets.QMainWindow):
+    def __init__(self):
+        QtWidgets.QWidget.__init__(self)
+        self.setupUi(self)
+
     def setupUi(self, mainWindow):
         mainWindow.setObjectName("mainWindow")
         mainWindow.resize(800, 800)
@@ -55,6 +66,9 @@ class Ui_mainWindow(object):
         font.setPointSize(12)
         self.actionAdd_Passenger.setFont(font)
         self.actionAdd_Passenger.setObjectName("actionAdd_Passenger")
+
+        # self.actionAdd_Passenger.triggered.connect(self.on_pushButton_clicked)
+
         self.actionView_Passengers = QtWidgets.QAction(mainWindow)
         icon1 = QtGui.QIcon()
         icon1.addPixmap(QtGui.QPixmap(":/icons/Resources/Icons/menu.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
@@ -91,4 +105,24 @@ class Ui_mainWindow(object):
         self.actionView_Passengers.setShortcut(_translate("mainWindow", "Ctrl+P"))
         self.actionAdd_Booking.setText(_translate("mainWindow", "Add Booking"))
 
-import rscConfig_rc
+        self.actionAdd_Passenger.triggered.connect(self.openAddPassenger)
+        self.actionView_Passengers.triggered.connect(self.openViewPassenger)
+        self.actionAdd_Booking.triggered.connect(self.openAddBooking)
+
+    def openAddPassenger(self):
+        self.window = QtWidgets.QWidget()
+        self.ui = Ui_addPassenger()
+        self.ui.setupUi(self.window)
+        self.window.show()
+
+    def openViewPassenger(self):
+        self.window = QtWidgets.QWidget()
+        self.ui = Ui_viewPassenger()
+        self.ui.setupUi(self.window)
+        self.window.show()
+
+    def openAddBooking(self):
+        self.window = QtWidgets.QWidget()
+        self.ui = Ui_addBooking()
+        self.ui.setupUi(self.window)
+        self.window.show()

@@ -8,7 +8,7 @@
 
 from PyQt5 import QtCore, QtGui, QtWidgets
 
-class Ui_addPassenger(object):
+class Ui_addPassenger(QtWidgets.QWidget):
     def setupUi(self, addPassenger):
         addPassenger.setObjectName("addPassenger")
         addPassenger.resize(500, 500)
@@ -60,5 +60,3 @@ class Ui_addPassenger(object):
         self.submitPassenger.setText(_translate("addPassenger", "Submit"))
         self.first_name.setPlaceholderText(_translate("addPassenger", "First name"))
         self.last_name.setPlaceholderText(_translate("addPassenger", "Last name"))
-
-import rscConfig_rc
