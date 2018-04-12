@@ -141,7 +141,7 @@ class Ui_addBooking(QtWidgets.QWidget):
     def makeBooking(self):
 
         if (self.bool_singletrip.isChecked()):
-            pid = str(self.passenger_id.text())
+            pid = int(self.passenger_id.text())
             fc1 = str(self.flight_code1.text())
             de1 = str(self.date_departure1.date().toPyDate())
 
@@ -156,8 +156,13 @@ class Ui_addBooking(QtWidgets.QWidget):
 
                 test6 = cursor.execute("SELECT COUNT(*) FROM (SELECT TOP 1 P.passenger_id FROM Passenger P WHERE P.passenger_id = ?) AS b", pid).fetchone()
                 test6 = int(test6[0])
-                print (test6)
 
+                test7 = cursor.execute("SELECT available_seats FROM Flight_Instance WHERE flight_code = ? AND depart_date = ?", fc1, de1).fetchone()
+                test7 = int(test7[0])
+
+                if (test7 <= 0):
+                    errMsg = "Flight is full"
+                    self.showdialog(errMsg=errMsg)
 
                 if (not(test6)):
                     errMsg = "passenger_id does not exist"
@@ -175,10 +180,7 @@ class Ui_addBooking(QtWidgets.QWidget):
                 if (test6 and test2 and test4):
                     cursor.execute("INSERT INTO Booking(flight_code, depart_date, passenger_id) VALUES(?, ?, ?)", fc1, de1, pid)
                     rows = cursor.execute("SELECT * FROM Booking").fetchall()
-                    for row in rows:
-                        print (row.flight_code, row.depart_date, row.passenger_id)
                     # cnxn.commit()
-                    print("FUCK YESSS")
 
 
             except:
@@ -186,7 +188,7 @@ class Ui_addBooking(QtWidgets.QWidget):
                 self.showdialog(errMsg=errMsg1)
 
         elif (self.bool_multicity.isChecked()):
-            pid = str(self.passenger_id.text())
+            pid = int(self.passenger_id.text())
             fc1 = str(self.flight_code1.text())
             de1 = str(self.date_departure1.date().toPyDate())
             fc2 = str(self.flight_code2.text())
@@ -196,9 +198,9 @@ class Ui_addBooking(QtWidgets.QWidget):
             b = dt.strptime(de2, "%Y-%m-%d")
 
 
+
             if (a > b):
                 errMsg1 = "Flight 1 departure date must not be later than Flight 2 departure date"
-                print (errMsg1)
                 self.showdialog(errMsg=errMsg1)
                 test1 = 0
 
@@ -222,7 +224,29 @@ class Ui_addBooking(QtWidgets.QWidget):
 
                 test6 = cursor.execute("SELECT COUNT(*) FROM (SELECT TOP 1 P.passenger_id FROM Passenger P WHERE P.passenger_id = ?) AS b", pid).fetchone()
                 test6 = int(test6[0])
+                test7 = cursor.execute("SELECT available_seats FROM Flight_Instance WHERE flight_code = ? AND depart_date = ?", fc1, de1).fetchone()
+                test7 = int(test7[0])
 
+                test8 = cursor.execute("SELECT available_seats FROM Flight_Instance WHERE flight_code = ? AND depart_date = ?", fc2, de2).fetchone()
+                test8 = int(test8[0])
+
+
+                if (fc1 == fc2 and de1 == de2):
+                    test7 -= 1
+                    test8 = test7 - 1
+
+                if (test7 <= 0 and test8 <=0):
+                    test7 = test8 = 0
+                    errMsg = "Both flights are full"
+                    self.showdialog(errMsg=errMsg)
+
+                elif (test7 <= 0):
+                    errMsg = "Flight 1 is full"
+                    self.showdialog(errMsg=errMsg)
+
+                elif (test8 <= 0):
+                    errMsg = "Flight 2 is full"
+                    self.showdialog(errMsg=errMsg)
 
                 if (not(test6)):
                     errMsg = "passenger_id does not exist"
@@ -252,22 +276,14 @@ class Ui_addBooking(QtWidgets.QWidget):
                     errMsg = "Flight 2 date does not exist"
                     self.showdialog(errMsg=errMsg)
 
-                print(test1)
-                print(test2)
-                print(test3)
-                print(test4)
-                print(test5)
-                print(test6)
-
-                if (test1 and test2 and test3 and test4 and test5 and test6):
-                    params = [ (fc1, de1, pid), (fc2, de2, pid)]
-                    cursor.executemany("INSERT INTO Booking(flight_code, depart_date, passenger_id) VALUES(?, ?, ?)", params)
+                if (test1 and test2 and test3 and test4 and test5 and test6 and test7 and test8):
+                    cursor.execute("INSERT INTO Booking(flight_code, depart_date, passenger_id) VALUES(?, ?, ?), (?, ?, ?)", fc1, de1, pid, fc2, de2, pid)
                     # cursor.execute("INSERT INTO Booking(flight_code, depart_date, passenger_id) VALUES(?, ?, ?)", fc2, de2, pid)
                     # cnxn.commit()
                     rows = cursor.execute("SELECT * FROM Booking").fetchall()
-                    for row in rows:
-                        print (row.flight_code, row.depart_date, row.passenger_id)
-                    print ("HELLO")
+                    # for row in rows:
+                    #     print (row.flight_code, row.depart_date, row.passenger_id)
+                    # print ("HELLO")
 
             except:
                 errMsg1 = "CSIL Cypress is probably down for the 124789123rd time"

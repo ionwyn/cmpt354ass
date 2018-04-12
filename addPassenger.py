@@ -75,7 +75,10 @@ class Ui_addPassenger(QtWidgets.QWidget):
             VALUES(?, ?, ?, 0)
             """
             cursor.execute(sql, curId, str(firstName), str(lastName))
-            cnxn.commit()
+            lone = cursor.execute("SELECT * FROM Passenger")
+            for lo in lone:
+                print (lo.passenger_id, lo.first_name, lo.last_name, lo.miles)
+            # cnxn.commit()
             message="The profile for passenger "+ firstName + " "+ lastName +" was created"
 
         except:
